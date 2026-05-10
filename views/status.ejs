@@ -1,0 +1,27 @@
+<body>
+    <script>
+        const image_name = document.getElementById('image-name');
+        const prog = document.getElementById('progress');
+        const processing_step = document.getElementById('processing-step');
+
+        const baseurl = new URL(window.location.origin);
+        const eventurl = new URL('/progress', baseurl);
+        const endurl = new URL('/list', baseurl);
+
+        const sse = new EventSource(eventurl);
+
+        sse.addEventListener('current-image', (e) => {
+            image_name.textContent = e.data;
+        });
+        sse.addEventListener('progress', (e) => {
+            prog.textContent = e.data;
+        });
+        sse.addEventListener('processing-step', (e) => {
+            processing_step.textContent = e.data;
+        });
+        sse.addEventListener('finished', (e) => {
+            prog.textContent = e.data;
+            window.location.assign(endurl);
+        });
+    </script>
+</body>
