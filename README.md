@@ -6,7 +6,7 @@ This is not representative of our full tech stack.\
 I am not restricted from sharing any part of our full tech stack.
 
 We had received feedback during a presentation to our clients to add some way to visualize progress of the image processing early on in our development.\
-This code snippet showcases a simple, creative solution to that problem.  It uses server-sent events to update the status view with a loading bar and the current active processing step.\
+This code snippet showcases a simple, modular solution to that problem.  It uses server-sent events to update the status view with a loading bar and the current active processing step.\
 Additional events with arbitrary parameters can be added very easily using this framework.
 
 ### index.js
